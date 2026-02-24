@@ -166,7 +166,9 @@ Sends notification when battery has charged to 100%.
 * Enable possibility of if pet not home and not with owner then trigger lost dog mode
 
 # Version History
-## 0.0.24 
+## 0.0.27
+* Added update_wifi_network service to push GPS coordinates to TryFi base location
+## 0.0.24
 * updated deprecated classes
 ## 0.0.23
 * Added support for dynamic lighting choices. 
