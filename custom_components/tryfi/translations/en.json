@@ -17,6 +17,26 @@
       "already_configured": "Device Already Configured for User"
     }
   },
+  "services": {
+    "update_wifi_network": {
+      "name": "Update WiFi Network Location",
+      "description": "Update the GPS position of a WiFi network in TryFi.",
+      "fields": {
+        "ssid": {
+          "name": "SSID",
+          "description": "The WiFi network SSID to update."
+        },
+        "latitude": {
+          "name": "Latitude",
+          "description": "GPS latitude coordinate."
+        },
+        "longitude": {
+          "name": "Longitude",
+          "description": "GPS longitude coordinate."
+        }
+      }
+    }
+  },
   "options": {
     "step": {
         "init": {
