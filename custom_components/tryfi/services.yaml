@@ -2,12 +2,10 @@ update_wifi_network:
   fields:
     ssid:
       required: true
-      example: "MyNetwork"
       selector:
-        text:
+        text: {}
     latitude:
       required: true
-      example: 37.7749
       selector:
         number:
           min: -90
@@ -16,7 +14,6 @@ update_wifi_network:
           mode: box
     longitude:
       required: true
-      example: -122.4194
       selector:
         number:
           min: -180
