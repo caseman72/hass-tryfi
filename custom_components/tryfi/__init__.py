@@ -18,6 +18,8 @@ from homeassistant.helpers.update_coordinator import (
 )
 from pytryfi import PyTryFi
 
+import voluptuous as vol
+
 from .const import (
     CONF_PASSWORD,
     CONF_POLLING_RATE,
@@ -54,6 +56,26 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     # This creates each HA object for each platform your device requires.
     # It's done by calling the `async_setup_entry` function in each platform module.
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+
+    # Register services
+    async def handle_update_wifi_network(call):
+        ssid = call.data["ssid"]
+        latitude = call.data["latitude"]
+        longitude = call.data["longitude"]
+        await hass.async_add_executor_job(
+            coordinator.tryfi.updateWifiNetwork, ssid, latitude, longitude
+        )
+
+    hass.services.async_register(
+        DOMAIN,
+        "update_wifi_network",
+        handle_update_wifi_network,
+        schema=vol.Schema({
+            vol.Required("ssid"): cv.string,
+            vol.Required("latitude"): vol.Coerce(float),
+            vol.Required("longitude"): vol.Coerce(float),
+        }),
+    )
 
     return True
 

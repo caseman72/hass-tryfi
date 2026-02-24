@@ -1,0 +1,33 @@
+update_wifi_network:
+  name: Update WiFi Network Location
+  description: Update the GPS position of a WiFi network in TryFi.
+  fields:
+    ssid:
+      name: SSID
+      description: The WiFi network SSID to update.
+      required: true
+      example: "MyNetwork"
+      selector:
+        text:
+    latitude:
+      name: Latitude
+      description: GPS latitude coordinate.
+      required: true
+      example: 37.7749
+      selector:
+        number:
+          min: -90
+          max: 90
+          step: 0.000001
+          mode: box
+    longitude:
+      name: Longitude
+      description: GPS longitude coordinate.
+      required: true
+      example: -122.4194
+      selector:
+        number:
+          min: -180
+          max: 180
+          step: 0.000001
+          mode: box
