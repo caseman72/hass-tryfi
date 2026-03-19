@@ -265,18 +265,18 @@ class PetStatsSensor(CoordinatorEntity, Entity):
                 return round(self.pet.monthlyTotalDistance / 1000, 2)
         elif self.statType.upper() == "NAP":
             if self.statTime.upper() == "DAILY":
-                return round(self.pet.dailyNap / 60, 2)
+                return round(self.pet.dailyNap / 60, 2) if self.pet.dailyNap is not None else None
             elif self.statTime.upper() == "WEEKLY":
-                return round(self.pet.weeklyNap / 60, 2)
+                return round(self.pet.weeklyNap / 60, 2) if self.pet.weeklyNap is not None else None
             elif self.statTime.upper() == "MONTHLY":
-                return round(self.pet.monthlyNap / 60, 2)
+                return round(self.pet.monthlyNap / 60, 2) if self.pet.monthlyNap is not None else None
         elif self.statType.upper() == "SLEEP":
             if self.statTime.upper() == "DAILY":
-                return round(self.pet.dailySleep / 60, 2)
+                return round(self.pet.dailySleep / 60, 2) if self.pet.dailySleep is not None else None
             elif self.statTime.upper() == "WEEKLY":
-                return round(self.pet.weeklySleep / 60, 2)
+                return round(self.pet.weeklySleep / 60, 2) if self.pet.weeklySleep is not None else None
             elif self.statTime.upper() == "MONTHLY":
-                return round(self.pet.monthlySleep / 60, 2)
+                return round(self.pet.monthlySleep / 60, 2) if self.pet.monthlySleep is not None else None
         else:
             return None
 

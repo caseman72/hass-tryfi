@@ -166,6 +166,8 @@ Sends notification when battery has charged to 100%.
 * Enable possibility of if pet not home and not with owner then trigger lost dog mode
 
 # Version History
+## 0.0.32
+* Fix crash when TryFi returns UnavailableRestSummaryData for sleep/nap sensors, which was also breaking device_tracker updates
 ## 0.0.31
 * Rebased onto upstream 0.0.26 with urllib3 and homeassistant dependency updates
 ## 0.0.28
